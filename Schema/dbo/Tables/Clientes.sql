@@ -9,33 +9,23 @@
 		IdTaller int NOT NULL		
 );
 GO
-		Alter table Cliente
-		ADD CONSTRAINT PK_Cliente_Dni PRIMARY KEY(Dni);
+		ALTER TABLE Cliente ADD CONSTRAINT PK_Cliente_Dni PRIMARY KEY(Dni);
 		GO
-		Alter table Cliente
-		ADD CONSTRAINT CK_Cliente_Dni CHECK(LEN(Dni)>0 and LEN(Dni)<9);
+		ALTER TABLE Cliente ADD CONSTRAINT CK_Cliente_Dni CHECK(LEN(Dni)>0 and LEN(Dni)<9);
 		GO
-		Alter table Cliente
-		ADD CONSTRAINT CK_Cliente_Estado CHECK(Estado in('A','I'));
+		ALTER TABLE Cliente ADD CONSTRAINT CK_Cliente_Estado CHECK(Estado in('A','I'));
 		GO
-		Alter table Cliente
-		ADD CONSTRAINT DF_Cliente_Nombres DEFAULT('') FOR Nombres;
+		ALTER TABLE Cliente ADD CONSTRAINT DF_Cliente_Nombres DEFAULT('') FOR Nombres;
 		GO
-		Alter table Cliente
-		ADD CONSTRAINT DF_Cliente_Apellidos DEFAULT('') FOR Apellidos;
+		ALTER TABLE Cliente ADD CONSTRAINT DF_Cliente_Apellidos DEFAULT('') FOR Apellidos;
 		GO
-		Alter table Cliente
-		ADD CONSTRAINT DF_Cliente_Direccion DEFAULT('') FOR Direccion;
+		ALTER TABLE Cliente ADD CONSTRAINT DF_Cliente_Direccion DEFAULT('') FOR Direccion;
 		GO
-		Alter table Cliente
-		ADD CONSTRAINT DF_Cliente_Telefono DEFAULT('') FOR Telefono;
+		ALTER TABLE Cliente ADD CONSTRAINT DF_Cliente_Telefono DEFAULT('') FOR Telefono;
 		GO
-		Alter table Cliente
-		ADD CONSTRAINT DF_Cliente_Estado DEFAULT('A') FOR Estado;
+		ALTER TABLE Cliente ADD CONSTRAINT DF_Cliente_Estado DEFAULT('A') FOR Estado;
 		GO
-		Alter table Cliente
-		ADD CONSTRAINT DF_Cliente_IdTaller DEFAULT(0) FOR IdTaller;
+		ALTER TABLE Cliente ADD CONSTRAINT DF_Cliente_IdTaller DEFAULT(0) FOR IdTaller;
 		GO
-		Alter table Cliente
-		ADD CONSTRAINT FK_Cliente_IdTaller FOREIGN KEY(IdTaller) REFERENCES Talleres(IdTaller);
+		ALTER TABLE Cliente ADD CONSTRAINT FK_Cliente_IdTaller FOREIGN KEY(IdTaller) REFERENCES Talleres(IdTaller);
 		GO
